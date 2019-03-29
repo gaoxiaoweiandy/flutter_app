@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:english_words/english_words.dart';
 //gxw- for study flutter  void main() => runApp(new MyApp());
 
@@ -8,7 +10,9 @@ import 'package:english_words/english_words.dart';
  * 包括Center和Text两个Widget
  */
 void main() {
-  runApp(new MaterialApp(
+
+  runApp(new MyAppForUsePackage());
+/*  runApp(new MaterialApp(
     title: 'My app', // used by the OS task switcher
     //home: new MyScaffold(),
     //gxw2-home: new Counter()//单击增加计数
@@ -19,8 +23,118 @@ void main() {
         new Product(name: 'Chocolate chips'),
       ],
     )
-  ));
+  ));*/
 }
+
+
+//包应用start
+class MyAppForUsePackage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: '容器组件示例',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('容器组件示例'),
+        ),
+        body: Center(
+
+            child:new RaisedButton(
+              onPressed:(){
+                const String url = 'http://www.baidu.com';
+                launch(url);
+              },
+              child:new Text('打开百度')
+
+          )
+
+
+          //添加容器
+   /*       child: Container(
+            width: 200.0,
+            height: 200.0,
+            //添加边框装饰效果
+            decoration: BoxDecoration(
+              color: Colors.white,
+              //设置上下左右四个边框样式
+              border: new Border.all(
+                color: Colors.grey, //边框颜色
+                width: 8.0, //边框粗细
+              ),
+              borderRadius:
+              const BorderRadius.all(const Radius.circular(8.0)), //边框的弧度
+            ),
+            child: Text(
+              'Flutter',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 28.0),
+            ),
+
+
+          ),*/
+        ),
+      ),
+    );
+  }
+}
+//包应用end
+
+
+//主题应用START
+class MyAppForThem extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final appName = '自定义主题';
+
+    return new MaterialApp(
+      title: appName,
+      theme: new ThemeData(
+        brightness: Brightness.light,//应用程序整体主题的亮度
+        primaryColor: Colors.lightGreen[600],//App主要部分的背景色
+        accentColor: Colors.orange[600],//前景色（文本、按钮等）
+      ),
+      home: new MyHomePage(
+        title: appName,
+      ),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  final String title;
+
+  MyHomePage({Key key, @required this.title}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text(title),
+      ),
+      body: new Center(
+        child: new Container(
+          //获取主题的accentColor
+          color: Theme.of(context).accentColor,
+          child: new Text(
+            '带有背景颜色的文本组件',
+            style: Theme.of(context).textTheme.title,
+          ),
+        ),
+      ),
+      floatingActionButton: new Theme(
+        //使用copyWith的方式获取accentColor
+        data: Theme.of(context).copyWith(accentColor: Colors.grey),
+        child: new FloatingActionButton(
+          onPressed: null,
+          child: new Icon(Icons.computer),
+        ),
+      ),
+    );
+  }
+}
+//主题应用END
+
+
 
 
 
