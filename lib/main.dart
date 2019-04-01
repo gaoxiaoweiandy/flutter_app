@@ -10,7 +10,7 @@ import 'dart:io';
 
 /**
  * runApp(根widget)
- *                                                                                                    ，，，，，，，0o'l
+ *
  */
 void main() {
 /*
@@ -54,10 +54,13 @@ class ContainerDemo extends StatelessWidget {
             ),
             borderRadius: const BorderRadius.all(const  Radius.circular(48.0))
         ),
-        child: new Text(
-          'Flutter',
-          textAlign: TextAlign.center,
-        ),
+        child: new Center(
+          child: new Text(
+            'FlutterB',
+            textAlign: TextAlign.center,
+          ),
+
+        )
       ),
     );
   }
