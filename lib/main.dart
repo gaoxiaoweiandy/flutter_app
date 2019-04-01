@@ -10,25 +10,59 @@ import 'dart:io';
 
 /**
  * runApp(根widget)
- * 包括Center和Text两个Widget
+ *                                                                                                    ，，，，，，，0o'l
  */
 void main() {
+/*
+  T t = T();
+  t.a();
+  t.b();*/
 
-  runApp(new MyAppForHttpClient());
-/*  runApp(new MaterialApp(
+
+  runApp(new MaterialApp(
     title: 'My app', // used by the OS task switcher
+    home: new ContainerDemo(),
+
     //home: new MyScaffold(),
     //gxw2-home: new Counter()//单击增加计数
-    home: new ShoppingList(
+ /*   home: new ShoppingList(
       products: <Product>[
         new Product(name: 'Eggs'),
         new Product(name: 'Flour'),
         new Product(name: 'Chocolate chips'),
       ],
-    )
-  ));*/
+    )*/
+  ));
 }
 
+
+//容器组件start
+class ContainerDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return new Center(
+
+      child: new Container(
+        width: 200.0,
+        height: 200.0,
+        decoration: new BoxDecoration(
+            color: Colors.white,
+            border: new Border.all(
+              color: Colors.green,
+              width: 8.0,
+            ),
+            borderRadius: const BorderRadius.all(const  Radius.circular(48.0))
+        ),
+        child: new Text(
+          'Flutter',
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
+  }
+}
+//容器组件end
 
 //HTTP CLIENT FOR MyApp  START
 class MyAppForHttpClient extends StatelessWidget {
@@ -77,6 +111,30 @@ class MyAppForHttpClient extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class T = S with A;//多继承，如果S与A有相同的函数，则会优先调研A
+
+class S
+{
+  a()
+  {
+    print("gaoxiaoweiS:a");
+  }
+}
+
+
+class A
+{
+  a()
+  {
+    print("gaoxiaoweiA:a");
+  }
+
+  b()
+  {
+    print("gaoxiaoweiA:b");
   }
 }
 
