@@ -21,7 +21,7 @@ void main() {
 
   runApp(new MaterialApp(
     title: 'My app', // used by the OS task switcher
-    home: new ContainerDemo(),
+    home: new ImageDemo(),
 
     //home: new MyScaffold(),
     //gxw2-home: new Counter()//单击增加计数
@@ -35,6 +35,50 @@ void main() {
   ));
 }
 
+
+
+
+
+//TEXT组件START
+class ImageDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Center(
+
+      child:new Column(
+
+
+              children:<Widget>[
+
+
+                new Text(
+                    "abc",
+                     style: new TextStyle(
+                       color: const Color(0xff00ff00),
+                       decoration: TextDecoration.lineThrough,
+                       decorationColor: const Color(0xff000000),
+                       fontSize: 18
+
+                     ),
+                     textAlign: TextAlign.center,
+                ),
+
+                new Text(
+                    "abcdef",
+                     textAlign: TextAlign.right
+                  ,
+                )
+
+              ]
+
+
+      )
+
+
+    );
+  }
+}
+//TEXT组件end
 
 //容器组件start
 class ContainerDemo extends StatelessWidget {
