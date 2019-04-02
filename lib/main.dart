@@ -21,7 +21,7 @@ void main() {
 
   runApp(new MaterialApp(
     title: 'My app', // used by the OS task switcher
-    home: new ImageDemo(),
+    home: new LayoutDemo(),
 
     //home: new MyScaffold(),
     //gxw2-home: new Counter()//单击增加计数
@@ -36,7 +36,45 @@ void main() {
 }
 
 
+class LayoutDemo extends StatelessWidget {
 
+
+/*ICON:
+  @override
+  Widget build(BuildContext context) {
+
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('图标组件示例'),
+      ),
+      body: new Icon(Icons.phone,color: Colors.green[500],size: 80.0,),
+    );
+
+  }*/
+
+//iconButton
+  @override
+  Widget build(BuildContext context) {
+
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('图标按钮组件示例'),
+      ),
+      body: new Center(
+        child: new IconButton(
+          icon: Icon(Icons.volume_up,size: 48.0,),
+          tooltip: '按下操作',
+          onPressed: () {
+            print('按下操作');
+          },
+        ),
+      ),
+    );
+
+  }
+
+
+}
 
 
 //TEXT组件START
