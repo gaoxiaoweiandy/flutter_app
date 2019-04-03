@@ -24,12 +24,10 @@ void main() {
 
 
 
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-    final title = "基础列表示例";
+    final title = "水平列表示例";
 
     return MaterialApp(
       title: title,
@@ -37,63 +35,65 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text(title),
         ),
-        //添加基础列表
-        body: new ListView(
-          //添加静态数据
-          children: <Widget>[
-            ListTile(
-              //添加图标
-              leading: Icon(Icons.alarm),
-              //添加文本
-              title: Text('Alarm'),
-            ),
-            ListTile(
-              leading: Icon(Icons.phone),
-              title: Text('Phone'),
-            ),
-            ListTile(
-              leading: Icon(Icons.airplay),
-              title: Text('Airplay'),
-            ),
-            ListTile(
-              leading: Icon(Icons.airplay),
-              title: Text('Airplay'),
-            ),
-            ListTile(
-              leading: Icon(Icons.airplay),
-              title: Text('Airplay'),
-            ),
-            ListTile(
-              leading: Icon(Icons.airplay),
-              title: Text('Airplay'),
-            ),
-            ListTile(
-              leading: Icon(Icons.alarm),
-              title: Text('Alarm'),
-            ),
-            ListTile(
-              leading: Icon(Icons.alarm),
-              title: Text('Alarm'),
-            ),
-            ListTile(
-              leading: Icon(Icons.alarm),
-              title: Text('Alarm'),
-            ),
-            ListTile(
-              leading: Icon(Icons.alarm),
-              title: Text('Alarm'),
-            ),
-            ListTile(
-              leading: Icon(Icons.alarm),
-              title: Text('Alarm'),
-            ),
-          ],
+        body: Container(
+          margin: EdgeInsets.symmetric(vertical: 20.0),
+          height: 200.0,
+          child: ListView(
+            //设置水平方向排列
+            scrollDirection: Axis.horizontal,
+            //添加子元素
+            children: <Widget>[
+              Container(
+                width: 160.0,
+                color: Colors.lightBlue,
+              ),
+              Container(
+                width: 160.0,
+                color: Colors.amber,
+              ),
+              Container(
+                width: 160.0,
+                color: Colors.green,
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      '水平',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 36.0,
+                      ),
+                    ),
+                    Text(
+                      '列表',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 36.0,
+                      ),
+                    ),
+                    Icon(Icons.list),
+                  ],
+                ),
+              ),
+              Container(
+                width: 160.0,
+                color: Colors.deepPurpleAccent,
+              ),
+              Container(
+                width: 160.0,
+                color: Colors.black,
+              ),
+              Container(
+                width: 160.0,
+                color: Colors.pinkAccent,
+              ),
+            ],
+          ),
         ),
       ),
-
     );
   }
 }
+
 
 
 
