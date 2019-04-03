@@ -19,75 +19,42 @@ void main() {
   t.b();*/
 
 
-  runApp(new MyApp());
+  runApp(new MyApp(
+
+    items: new List<String>.generate(500, (i) => "Item $i")
+  ));
 }
 
 
 
 class MyApp extends StatelessWidget {
+
+  //列表数据集
+  final List<String> items;
+
+  MyApp({Key key, @required this.items}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    final title = "水平列表示例";
+    final title = "长列表示例";
 
     return MaterialApp(
       title: title,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(title),
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text(title),
         ),
-        body: Container(
-          margin: EdgeInsets.symmetric(vertical: 20.0),
-          height: 200.0,
-          child: ListView(
-            //设置水平方向排列
-            scrollDirection: Axis.horizontal,
-            //添加子元素
-            children: <Widget>[
-              Container(
-                width: 160.0,
-                color: Colors.lightBlue,
-              ),
-              Container(
-                width: 160.0,
-                color: Colors.amber,
-              ),
-              Container(
-                width: 160.0,
-                color: Colors.green,
-                child: Column(
-                  children: <Widget>[
-                    Text(
-                      '水平',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 36.0,
-                      ),
-                    ),
-                    Text(
-                      '列表',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 36.0,
-                      ),
-                    ),
-                    Icon(Icons.list),
-                  ],
-                ),
-              ),
-              Container(
-                width: 160.0,
-                color: Colors.deepPurpleAccent,
-              ),
-              Container(
-                width: 160.0,
-                color: Colors.black,
-              ),
-              Container(
-                width: 160.0,
-                color: Colors.pinkAccent,
-              ),
-            ],
-          ),
+        //使用ListView.builder来构造列表项
+        body: new ListView.builder(
+          //列表长度
+          itemCount: items.length,
+          //列表项构造器
+          itemBuilder: (context,index) {
+            return new ListTile(
+              leading: new Icon(Icons.phone),
+              title: new Text('${items[index]}'),
+            );
+          },
         ),
       ),
     );
