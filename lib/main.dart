@@ -16,9 +16,41 @@ import 'dart:io';
 void main() => runApp(
   new MaterialApp(
     title: 'Scaffold脚手架组件示例',
-    home: new LayoutDemoForScaffold(),
+    home: new LayoutDemoForAppbar(),
   ),
 );
+
+
+//AppBar demo start
+class LayoutDemoForAppbar extends StatelessWidget {
+
+
+  @override
+  Widget build(BuildContext context) {
+
+    return new Scaffold(
+      appBar: AppBar(
+        title: Text('AppBar应用按钮示例'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            tooltip: '搜索',
+            onPressed: (){},
+          ),
+          IconButton(
+            icon: Icon(Icons.add),
+            tooltip: '添加',
+            onPressed: (){},
+          ),
+        ],
+      ),
+
+    );
+
+  }
+}
+//AppBar demo end
+
 
 //Scaffold实例START
 class LayoutDemoForScaffold extends StatelessWidget {
