@@ -12,18 +12,15 @@ import 'dart:io';
  * runApp(根widget)
  *
  */
-void main() {
-/*
-  T t = T();
-  t.a();
-  t.b();*/
 
+void main() => runApp(
+  new MaterialApp(
+    title: 'Scaffold脚手架组件示例',
+    home: new LayoutDemoForScaffold(),
+  ),
+);
 
-  runApp(new MyAppForRoute(
-
-  ));
-}
-
+//Scaffold实例START
 class LayoutDemoForScaffold extends StatelessWidget {
 
   @override
@@ -53,7 +50,7 @@ class LayoutDemoForScaffold extends StatelessWidget {
     );
   }
 }
-
+//Scaffold实例END
 
 
 
