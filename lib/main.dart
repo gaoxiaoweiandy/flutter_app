@@ -16,9 +16,97 @@ import 'dart:io';
 void main() => runApp(
   new MaterialApp(
     title: 'Scaffold脚手架组件示例',
-    home: new MyAppFloatButton(),
+    home: new MyAppForSimpleDlg(),
   ),
 );
+
+
+//MyAppForSimpleDlg
+class MyAppForSimpleDlg extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'PopupMenuButton组件示例',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('PopupMenuButton组件示例'),
+        ),
+        body: Center(
+          child: SimpleDialog(
+            title: const Text('对话框标题'),
+            children: <Widget>[
+              SimpleDialogOption(
+                onPressed: () {  },
+                child: const Text('第一行信息'),
+              ),
+              SimpleDialogOption(
+                onPressed: () {  },
+                child: const Text('第二行信息'),
+              ),
+            ],
+          ),
+
+
+
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+//会控菜单项START
+enum ConferenceItem { AddMember, LockConference, ModifyLayout, TurnoffAll }
+
+class MyAppForPopupMenu extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'PopupMenuButton组件示例',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('PopupMenuButton组件示例'),
+        ),
+        body: Center(
+          child: FlatButton(
+            onPressed: () {},
+            child: PopupMenuButton<ConferenceItem>(
+              onSelected: (ConferenceItem result) {},
+              itemBuilder: (BuildContext context) =>//菜单项构造器
+              <PopupMenuEntry<ConferenceItem>>[
+                const PopupMenuItem<ConferenceItem>(//菜单项
+                  value: ConferenceItem.AddMember,
+                  child: Text('添加成员'),
+                ),
+                const PopupMenuItem<ConferenceItem>(
+                  value: ConferenceItem.LockConference,
+                  child: Text('锁定会议'),
+                ),
+                const PopupMenuItem<ConferenceItem>(
+                  value: ConferenceItem.ModifyLayout,
+                  child: Text('修改布局'),
+                ),
+                const PopupMenuItem<ConferenceItem>(
+                  value: ConferenceItem.TurnoffAll,
+                  child: Text('挂断所有'),
+                ),
+              ],
+            ),
+          ),
+
+
+
+        ),
+      ),
+    );
+  }
+}
+
+
+//fab start
 class MyAppFloatButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -70,7 +158,7 @@ class MyAppFloatButton extends StatelessWidget {
       ),
     );
   }
-}
+}//fab end
 
 //drawer start
 class LayoutDemoDrawer extends StatelessWidget {
