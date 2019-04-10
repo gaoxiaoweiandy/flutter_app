@@ -14,10 +14,155 @@ import 'dart:io';
  */
 
 void main() => runApp(
-    new MyAppForSnackBar(),
+
+     new MaterialApp(
+       title:"card 演示",
+       home:new MyAppForCard(),
+)
+
+
 );
 
 
+class LayoutDemoForContainer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    //返回一个Container对象
+    Widget container = new Container(
+      //添加装饰效果
+      decoration: new BoxDecoration(
+        color: Colors.grey,
+      ),
+      //子元素指定为一个垂直水平嵌套布局的组件
+      child: new Column(
+        children: <Widget>[
+          new Row(
+            children: <Widget>[
+              //使用Expanded防止内容溢出
+              new Expanded(
+                child: new Container(
+                  width: 150.0,
+                  height: 150.0,
+                  //添加边框样式
+                  decoration: new BoxDecoration(
+                    //上下左右边框设置为宽度10.0 颜色为蓝灰色
+                    border: new Border.all(width: 10.0, color: Colors.blueGrey),
+                    //上下左右边框弧度设置为8.0
+                    borderRadius:
+                    const BorderRadius.all(const Radius.circular(8.0)),
+                  ),
+                  //上下左右增加边距
+                  margin: const EdgeInsets.all(4.0),
+                  //添加图片
+                  child: new Image.asset('images/1.jpeg'),
+                ),
+              ),
+              new Expanded(
+                child: new Container(
+                  width: 150.0,
+                  height: 150.0,
+                  decoration: new BoxDecoration(
+                    border: new Border.all(width: 10.0, color: Colors.blueGrey),
+                    borderRadius:
+                    const BorderRadius.all(const Radius.circular(8.0)),
+                  ),
+                  margin: const EdgeInsets.all(4.0),
+                  child: new Image.asset('images/2.jpeg'),
+                ),
+              ),
+            ],
+          ),
+          new Row(
+            children: <Widget>[
+              new Expanded(
+                child: new Container(
+                  width: 150.0,
+                  height: 150.0,
+                  decoration: new BoxDecoration(
+                    border: new Border.all(width: 10.0, color: Colors.blueGrey),
+                    borderRadius:
+                    const BorderRadius.all(const Radius.circular(8.0)),
+                  ),
+                  margin: const EdgeInsets.all(4.0),
+                  child: new Image.asset('images/3.jpeg'),
+                ),
+              ),
+              new Expanded(
+                child: new Container(
+                  width: 150.0,
+                  height: 150.0,
+                  decoration: new BoxDecoration(
+                    border: new Border.all(width: 10.0, color: Colors.blueGrey),
+                    borderRadius:
+                    const BorderRadius.all(const Radius.circular(8.0)),
+                  ),
+                  margin: const EdgeInsets.all(4.0),
+                  child: new Image.asset('images/2.jpeg'),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('Container布局容器示例'),
+      ),
+      body: container,
+    );
+  }
+}
+
+class MyAppForCard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+
+    var card = new SizedBox(
+      height: 250.0,
+      child: new Card(
+        child: new Column(
+          children: <Widget>[
+            new ListTile(
+              title: new Text(
+                '深圳市南山区深南大道35号',style: new TextStyle(fontWeight: FontWeight.w300),
+              ),
+              subtitle: new Text('创想科技有限公司'),
+              leading: new Icon(
+                Icons.home,
+                color: Colors.lightBlue,
+              ),
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text(
+                '深圳市罗湖区沿海大道32号',style: new TextStyle(fontWeight: FontWeight.w300),
+              ),
+              subtitle: new Text('一木培训机构'),
+              leading: new Icon(
+                Icons.school,
+                color: Colors.lightBlue,
+              ),
+            ),
+            new Divider(),
+
+          ],
+        ),
+      ),
+    );
+
+
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('Card布局示例'),
+      ),
+      body: new Center(
+        child: card,
+      ),
+    );
+  }
+}
 
 //SnackBar START
 
