@@ -17,13 +17,14 @@ void main() => runApp(
 
      new MaterialApp(
        title:"card 演示",
-       home:new MyAppForCard(),
+       home:new LayoutDemoForContainer(),
 )
 
 
 );
 
 
+//Container START
 class LayoutDemoForContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -114,6 +115,7 @@ class LayoutDemoForContainer extends StatelessWidget {
     );
   }
 }
+//Container END
 
 class MyAppForCard extends StatelessWidget {
   @override
