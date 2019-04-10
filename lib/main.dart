@@ -16,14 +16,92 @@ import 'dart:io';
 void main() => runApp(
 
      new MaterialApp(
-       title:"rAlign 演示",
-       home:new LayoutDemoForRow(),
+       home:new LayoutDemoForColumn(),
 )
 
 );
 
 
 
+class LayoutDemoForFitterBox extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('FittedBox缩放布局示例'),
+      ),
+      body: new Container(
+        color: Colors.grey,
+        width: 250.0,
+        height: 250.0,
+        child: new FittedBox(
+          fit: BoxFit.contain,
+          alignment: Alignment.topLeft,
+          child: new Container(
+            color: Colors.deepOrange,
+            child: new Text("缩放布局"),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+class LayoutDemoForColumn extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('垂直布局示例一'),
+      ),
+      body: new Column(
+        children: <Widget>[
+          new Text('Flutter'),
+          new Text('垂直布局'),
+          new Expanded(
+            child: new FittedBox(
+              fit: BoxFit.contain,  //内容尽可能大的天填充剩余空间Expanded
+              child: const FlutterLogo(),
+            ),
+          ),
+        ],
+      ),
+    );
+
+  }
+}
+
+class LayoutDemoForColumn2 extends StatelessWidget {
+
+
+  @override
+  Widget build(BuildContext context) {
+
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('垂直布局示例二'),
+      ),
+      //文本按重起方向排列
+      body: new Column(
+        crossAxisAlignment: CrossAxisAlignment.start,//水平方向靠左对齐
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          new Text('Flutter是谷歌的移动UI框架'),
+          new Text('可以快速在iOS和Android上构建高质量的原生用户界面'),
+          new Text('Flutter可以与现有的代码一起工作。在全世界'),
+          new Text('Flutter正在被越来越多的开发者和组织使用'),
+          new Text('并且Flutter是完全免费、开源的。'),
+          new Text('Flutter!', style: TextStyle(fontSize: 36.0,)),//放大字号
+        ],
+      ),
+    );
+
+  }
+}
 class LayoutDemoForRow extends StatelessWidget {
 
   @override
