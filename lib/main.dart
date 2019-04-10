@@ -16,7 +16,7 @@ import 'dart:io';
 void main() => runApp(
 
      new MaterialApp(
-       home:new LayoutDemoForColumn(),
+       home:new LayoutDemoForFitterBox(),
 )
 
 );
@@ -35,7 +35,7 @@ class LayoutDemoForFitterBox extends StatelessWidget {
         width: 250.0,
         height: 250.0,
         child: new FittedBox(
-          fit: BoxFit.contain,
+          fit: BoxFit.contain, //尽可能大的填充空间，等比缩放
           alignment: Alignment.topLeft,
           child: new Container(
             color: Colors.deepOrange,
