@@ -16,13 +16,33 @@ import 'dart:io';
 void main() => runApp(
 
      new MaterialApp(
-       title:"card 演示",
-       home:new LayoutDemoForContainer(),
+       title:"CENTER 演示",
+       home:new LayoutDemoForCenter(),
 )
 
 
 );
 
+//Center Widget START
+class LayoutDemoForCenter extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('Center居中布局示例'),
+      ),
+      body: new Center(
+        child: new Text(
+          'Hello Flutter',
+          style:  TextStyle(
+            fontSize: 36.0,
+          ),
+        ),
+      ),
+    );
+  }
+}
+//Center Widget END
 
 //Container START
 class LayoutDemoForContainer extends StatelessWidget {
@@ -111,7 +131,9 @@ class LayoutDemoForContainer extends StatelessWidget {
       appBar: new AppBar(
         title: new Text('Container布局容器示例'),
       ),
-      body: container,
+      body:  Center(
+      child:container,
+      )
     );
   }
 }
@@ -159,7 +181,7 @@ class MyAppForCard extends StatelessWidget {
       appBar: new AppBar(
         title: new Text('Card布局示例'),
       ),
-      body: new Center(
+      body:  Center(
         child: card,
       ),
     );
