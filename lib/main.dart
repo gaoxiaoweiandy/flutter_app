@@ -16,10 +16,38 @@ import 'dart:io';
 void main() => runApp(
 
      new MaterialApp(
-       home:new MyAppForStackIndex(),
+       home:new LayoutDemoForOverFlowBox(),
 )
 
 );
+
+
+
+class LayoutDemoForOverFlowBox extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        appBar: new AppBar(
+          title: new Text('OverflowBox溢出父容器显示示例'),
+        ),
+        body: Container(
+          color: Colors.green,
+          width: 200.0,
+          height: 200.0,
+          padding: const EdgeInsets.all(50.0),
+          child: OverflowBox(
+            alignment: Alignment.topLeft,
+            maxWidth: 400.0,
+            maxHeight: 250.0,
+            child: Container(
+              color: Colors.blueGrey,
+              width: 280.0,
+              height: 280.0,
+            ),
+          ),
+        ));
+  }
+}
 
 
 
