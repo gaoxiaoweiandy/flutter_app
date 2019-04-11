@@ -16,12 +16,12 @@ import 'dart:io';
 void main() => runApp(
 
      new MaterialApp(
-       home:new LayoutDemoForSizeBox(),
+       home:new LayoutDemoForContrainedBox(),
 )
 
 );
 
-//SizeBox,如何指定了宽高，则SizeBox就是这个宽高，如果没有指定，SizeBox随child的宽高而变化
+//SizeBox,如何指定了宽高，则child就是这个宽高，如果没有指定，SizeBox随child的宽高而变化
 class LayoutDemoForSizeBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -39,6 +39,32 @@ class LayoutDemoForSizeBox extends StatelessWidget {
                 fontSize: 36.0,
               ),
             )),
+      ),
+    );
+  }
+}
+
+
+
+class LayoutDemoForContrainedBox extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('ConstrainedBox限定宽高示例'),
+      ),
+      body: new ConstrainedBox(
+        constraints: const BoxConstraints(
+          minWidth: 50.0,
+          minHeight: 50.0,
+          maxWidth: 300.0,
+          maxHeight: 300.0,
+        ),
+       child: new Container(
+          width: 300.0,
+          height: 300.0,
+          color: Colors.red,
+        ),
       ),
     );
   }
